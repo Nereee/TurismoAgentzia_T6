@@ -123,7 +123,7 @@ function gordeFormulario(event) {
   const hasieraData = document.getElementById('hasieradata').value;
   const amaieraData = document.getElementById('amaieradata').value;
   const egunak = document.getElementById('bidaiaegunak').value;
-  const herrialdea = document.getElementById('herrilaldea').value;
+  const herrialdea = document.getElementById('herrialdea').value;
   const deskribapena = document.getElementById('deskribapena').value;
 
   // Taulan beste errenkada bat sortu
@@ -156,111 +156,29 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('bidaiaForm').addEventListener('submit', gordeFormulario);
 });
 
+// Iniciar sesión con usuario y contraseña predeterminados
+document.addEventListener('DOMContentLoaded', function () {
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Evitar el envío del formulario
 
+      const username = document.getElementById('erabiltzailea').value;
+      const password = document.getElementById('pasahitza').value;
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Maneja la selección del tipo de servicio
-    const serviceRadios = document.getElementsByName('zerbitzumota');
-    serviceRadios.forEach(radio => {
-        radio.addEventListener('change', handleServiceTypeChange);
+      if (username === 'admin' && password === 'admin') {
+        alert('Inicio de sesión exitoso');
+        // Redirigir a la página principal o realizar alguna acción
+        window.location.href = 'orrinagusia.html';
+      } else {
+        alert('Usuario o contraseña incorrectos');
+      }
     });
-
-    // Maneja el envío del formulario
-    document.getElementById('zerbitzuForm').addEventListener('submit', saveServiceForm);
-
-    // Muestra el bloque correspondiente al tipo de servicio seleccionado
-    function handleServiceTypeChange() {
-        const hegaldiaBlock = document.getElementById('hegaldiaBlokea');
-        const ostatuaBlock = document.getElementById('ostatuaBlokea');
-        const bestebatzukBlock = document.getElementById('bestebatzukBlokea');
-
-        hegaldiaBlock.style.display = 'none';
-        ostatuaBlock.style.display = 'none';
-        bestebatzukBlock.style.display = 'none';
-
-        if (this.value === 'hegaldia') {
-            hegaldiaBlock.style.display = 'block';
-        } else if (this.value === 'ostatua') {
-            ostatuaBlock.style.display = 'block';
-        } else if (this.value === 'bestebatzuk') {
-            bestebatzukBlock.style.display = 'block';
-        }
-    }
-
-    // Guarda el formulario en la tabla
-    function saveServiceForm(event) {
-        event.preventDefault();
-
-        // Variables comunes
-        const bidaiamota = document.getElementById('bidaiamota').value;
-        const serviceType = document.querySelector('input[name="zerbitzumota"]:checked').value;
-
-        let rowData = `<td>${bidaiamota}</td><td>${serviceType}</td>`;
-
-        // Datos específicos del tipo de servicio
-        if (serviceType === 'hegaldia') {
-            const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked').value;
-            const jatorrizkoAireportua = document.getElementById('jatorrizkoAireportua').value;
-            const helmugakoAireportua = document.getElementById('helmugakoAireportua').value;
-            const hegaldiKodea = document.getElementById('hegaldiKodea').value;
-            const airelinea = document.getElementById('airelinea').value;
-            const hegaldiPrezioa = document.getElementById('hegaldiPrezioa').value;
-            const irteeraData = document.getElementById('irteeraData').value;
-            const irteeraOrdua = document.getElementById('irteeraOrdua').value;
-            const bidaiIraupena = document.getElementById('bidaiIraupena').value;
-
-            rowData += `
-                <td>${hegaldiMota}</td>
-                <td>${jatorrizkoAireportua}</td>
-                <td>${helmugakoAireportua}</td>
-                <td>${hegaldiKodea}</td>
-                <td>${airelinea}</td>
-                <td>${hegaldiPrezioa}€</td>
-                <td>${irteeraData}</td>
-                <td>${irteeraOrdua}</td>
-                <td>${bidaiIraupena}</td>`;
-        } else if (serviceType === 'ostatua') {
-            const hotelIzena = document.getElementById('hotelIzena').value;
-            const hiriaOstatua = document.getElementById('hiriaOstatua').value;
-            const ostatuaPrezioa = document.getElementById('ostatuaPrezioa').value;
-            const ostatuaSarrera = document.getElementById('ostatuaSarrera').value;
-            const ostatuaIrteera = document.getElementById('ostatuaIrteera').value;
-            const ostatuaLogelea = document.getElementById('ostatuaLogelea').value;
-
-            rowData += `
-                <td>${hotelIzena}</td>
-                <td>${hiriaOstatua}</td>
-                <td>${ostatuaPrezioa}€</td>
-                <td>${ostatuaSarrera}</td>
-                <td>${ostatuaIrteera}</td>
-                <td>${ostatuaLogelea}</td>`;
-        } else if (serviceType === 'bestebatuk') {
-            const bestebatukIzena = document.getElementById('bestebatukIzena').value;
-            const zerbitzuData = document.getElementById('zerbitzuData').value;
-            const zerbitzuDeskribapena = document.getElementById('zerbitzuDeskribapena').value;
-            const zerbitzuPrezioa = document.getElementById('zerbitzuPrezioa').value;
-
-            rowData += `
-                <td>${bestebatukIzena}</td>
-                <td>${zerbitzuData}</td>
-                <td>${zerbitzuDeskribapena}</td>
-                <td>${zerbitzuPrezioa}€</td>`;
-        }
-
-        // Añadir fila a la tabla
-        const tableBody = document.getElementById('laburpen-taula');
-        const row = document.createElement('tr');
-        row.innerHTML = rowData;
-        tableBody.appendChild(row);
-
-        // Resetear formulario
-        document.getElementById('zerbitzuForm').reset();
-
-        // Ocultar bloques
-        document.getElementById('hegaldiaBlokea').style.display = 'none';
-        document.getElementById('ostatuaBlokea').style.display = 'none';
-        document.getElementById('bestebatzukBlokea').style.display = 'none';
-    }
+  }
 });
+
+
+
+
+
+
