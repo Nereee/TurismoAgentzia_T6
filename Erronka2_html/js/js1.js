@@ -156,27 +156,35 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('bidaiaForm').addEventListener('submit', gordeFormulario);
 });
 
-// Iniciar sesión con usuario y contraseña predeterminados
+
+
+// Array-ak erabiltzaileen datuekin (administratzailea eta agentziak)
+const users = [
+  ['admin', 'admin'],  // [erabiltzailea, pasahitza]
+  ['agentzia1', 'password1'],  // [erabiltzailea, pasahitza]
+  ['agentzia2', 'password2']   // [erabiltzailea, pasahitza]
+];
+
 document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
     loginForm.addEventListener('submit', function (event) {
-      event.preventDefault(); // Evitar el envío del formulario
+      event.preventDefault(); // Inprimakia ez bidaltzea
 
       const username = document.getElementById('erabiltzailea').value;
       const password = document.getElementById('pasahitza').value;
 
-      if (username === 'admin' && password === 'admin') {
-        alert('Inicio de sesión exitoso');
-        // Redirigir a la página principal o realizar alguna acción
-        window.location.href = 'orrinagusia.html';
+      // Egiaztatu erabiltzailea eta pasahitza zuzenak diren
+      const user = users.find(user => user[0] === username && user[1] === password);
+      if (user) {
+        alert(`Ongi etorri, ${username}`);
+        window.location.href = 'orrinagusia.html'; // Orri nagusira zuzendu
       } else {
-        alert('Usuario o contraseña incorrectos');
+        alert('Erabiltzaile edo pasahitz okerra');
       }
     });
   }
 });
-
 
 
 
