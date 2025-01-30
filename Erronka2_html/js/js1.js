@@ -56,22 +56,21 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < zerbitzumotaRadios.length; i++) {
     zerbitzumotaRadios[i].addEventListener('change', function() {
 
-      /*Hautatutako button erradioaren IDaren arabera:
-        Dagokion blokea bistaratzen da.
-        Gainerako blokeak ezkutatzen dira.
-        If-else erabiltzen da zein botoi hautatu den egiaztatzeko*/
+      // Hautatutako button erradioaren IDaren arabera:
+      // Dagokion blokea bistaratzen da.
+      // Gainerako blokeak ezkutatzen dira.
       if (this.id === 'btnHegaldia') {
-        hegaldiaBlokea.style.display = 'block';
-        ostatuaBlokea.style.display = 'none';
-        bestebatzukBlokea.style.display = 'none';
+        hegaldiaBlokea.style.display = 'block';  // Hegaldia blokea erakutsi
+        ostatuaBlokea.style.display = 'none';   // Ostatua blokea ezkutatu
+        bestebatzukBlokea.style.display = 'none'; // Beste Batzuk blokea ezkutatu
       } else if (this.id === 'btnOstatua') {
-        hegaldiaBlokea.style.display = 'none';
-        ostatuaBlokea.style.display = 'block';
-        bestebatzukBlokea.style.display = 'none';
+        hegaldiaBlokea.style.display = 'none';   // Hegaldia blokea ezkutatu
+        ostatuaBlokea.style.display = 'block';  // Ostatua blokea erakutsi
+        bestebatzukBlokea.style.display = 'none'; // Beste Batzuk blokea ezkutatu
       } else {
-        hegaldiaBlokea.style.display = 'none';
-        ostatuaBlokea.style.display = 'none';
-        bestebatzukBlokea.style.display = 'block';
+        hegaldiaBlokea.style.display = 'none';   // Hegaldia blokea ezkutatu
+        ostatuaBlokea.style.display = 'none';    // Ostatua blokea ezkutatu
+        bestebatzukBlokea.style.display = 'block'; // Beste Batzuk blokea erakutsi
       }
     });
   }
@@ -151,18 +150,60 @@ function gordeFormulario(event) {
   document.getElementById('bidaiaegunak').value = '';
 }
 
-/* Array users bat definitzen da, non erabiltzaile bakoitza bi balio dituen azpi-array bat den:
-  Lehen balioa: erabiltzaile-izena.
-  Bigarren balioa: pasahitza.*/
-const users = [
-  ['admin', 'admin'],
-  ['agentzia1', 'password1'],
-  ['agentzia2', 'password2']
-];
+// DOMContentLoaded erabiltzen da script-a HTML dokumentua guztiz kargatuta dagoenean bakarrik exekutatzen dela ziurtatzeko.
+/*Itxaron HTML dokumentua erabat kargatuta egon arte JavaScript kodea exekutatu aurretik.
+  Ondoren, aukeratu inprimakia id="zerbitzuForm" aukerarekin, eta gehitu submit ekitaldi bat, 
+  erabiltzaileak formularioa bidaltzen duenean "Gorde formularioa" funtzioa beteko duena.*/
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('zerbitzuForm').addEventListener('submit', gordeFormulario2);
+});
+
+function gordeFormulario2(event) {
+    event.preventDefault(); 
+
+    const zerbitzua = document.getElementById('zerbitzumota').value;
+    const hegaldiMota = document.getElementById('hegaldiMota').value;
+    const jatorrizkoAireportua = document.getElementById('jatorrizkoAireportua').value;
+    const helmugakoAireportua = document.getElementById('helmugakoAireportua').value;
+    const hegaldiKodea = document.getElementById('hegaldiKodea').value;
+    const airelinea = document.getElementById('airelinea').value;
+    const hegaldiPrezioa = document.getElementById('hegaldiPrezioa').value;
+    const irteeraData = document.getElementById('irteeraData').value;
+    const irteeraOrdua = document.getElementById('irteeraOrdua').value;
+    const bidaiIraupena = document.getElementById('bidaiIraupena').value;
+
+    const tableBody = document.getElementById('laburpen-taula2');
+    const row = tableBody.insertRow();
+
+    row.insertCell(0).textContent = zerbitzua;
+    row.insertCell(1).textContent = hegaldiMota;
+    row.insertCell(2).textContent = jatorrizkoAireportua;
+    row.insertCell(3).textContent = helmugakoAireportua;
+    row.insertCell(4).textContent = hegaldiKodea;
+    row.insertCell(5).textContent = airelinea;
+    row.insertCell(6).textContent = hegaldiPrezioa;
+    row.insertCell(7).textContent = irteeraData;
+    row.insertCell(8).textContent = irteeraOrdua;
+    row.insertCell(9).textContent = bidaiIraupena;
+
+    document.getElementById('taula-container2').style.display = 'block';
+    document.getElementById('zerbitzuForm').reset();
+}
+
+
+
 
 // Login formularioaren datuak egiaztatzeko funtzioa
 // DOMContentLoaded erabiltzen da script-a HTML dokumentua guztiz kargatuta dagoenean bakarrik exekutatzen dela ziurtatzeko.
 document.addEventListener('DOMContentLoaded', function() {
+  /* Array users bat definitzen da, non erabiltzaile bakoitza bi balio dituen azpi-array bat den:
+  Lehen balioa: erabiltzaile-izena.
+  Bigarren balioa: pasahitza.*/
+  const users = [
+    ['admin', 'admin'],
+    ['agentzia1', 'password1'],
+    ['agentzia2', 'password2']
+  ];
 
   /*getElementById('loginForm') duen formularioa lortzen da.
     Event listener bat gehitzen zaio formularioko submit ekitaldiari.
@@ -176,16 +217,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const username = document.getElementById('erabiltzailea').value;
       const password = document.getElementById('pasahitza').value;
 
-      // .find() erabiltzen da array users-ean sartutako izen eta pasahitzekin bat datorren erabiltzaile bat bilatzeko.
-      const user = users.find(function(user) {
-        return user[0] === username && user[1] === password;
-      });
-      /*User badago:
-        Ongietorriko mezua bistaratzen du.
-        Honi birbideratzen dio orrinagusia.html.
-        Erabiltzailea aurkitzen ez bada:
-        Alerta bat bistaratzen du, eta erabiltzailearen edo pasahitzaren errorea adierazten du. */
-      if (user) {
+      let userFound = false; // Aldagai bat erabiltzailea aurkitu den adierazteko.
+
+      // users array-a for loop erabiliz pasatzen dugu
+      for (let i = 0; i < users.length; i++) {
+        const user = users[i];
+        if (user[0] === username && user[1] === password) {
+          userFound = true;
+          break; // Erabiltzailea aurkitu duzunean, loop-a gelditu
+        }
+      }
+
+      // Erabiltzailea aurkitu den egiaztatzen da
+      if (userFound) {
         alert('Ongi etorri, ' + username);
         window.location.href = 'orrinagusia.html';
       } else {
@@ -194,3 +238,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+

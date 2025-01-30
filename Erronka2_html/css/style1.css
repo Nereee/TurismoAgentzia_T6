@@ -55,12 +55,10 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 100px;
-    margin-left: 100px;
+    margin: 20px auto;
 }
 
 th, td {
@@ -86,9 +84,13 @@ tr:nth-child(even) {
     width: 100%;
 }
 
-table {
-    margin: 20px auto;
-} 
+#taula-container2 {
+    display: none;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
 legend{
     font-size: 20px;
