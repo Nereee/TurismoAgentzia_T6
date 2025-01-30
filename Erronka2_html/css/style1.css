@@ -80,9 +80,15 @@ tr:nth-child(even) {
 
 #taula-container {
     display: none;
-    margin-top: 40px;
-    
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
+
+table {
+    margin: 20px auto;
+} 
 
 legend{
     font-size: 20px;
@@ -151,8 +157,9 @@ textarea{
 main{
     flex: 1;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 footer {
@@ -185,6 +192,10 @@ footer {
     #logoa, #btnLogout {
         position: static;
         margin-bottom: 20px;
+    }
+
+    main {
+        flex-direction: column;
     }
 }
 

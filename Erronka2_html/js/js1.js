@@ -1,123 +1,127 @@
-//DOMContentLoaded JavaScript-eko gertaera bat da, eta HTML dokumentua guztiz kargatu eta parseatu denean jaurtitzen da.
+// Egunak kalkulatzejako funtzioa
+// DOMContentLoaded erabiltzen da script-a HTML dokumentua guztiz kargatuta dagoenean bakarrik exekutatzen dela ziurtatzeko.
 document.addEventListener("DOMContentLoaded", function() {
-  // Bi daten arteko egunak kalkulatzeko funtzioa
+  // Funtzio honen bidez, sartutako egunen arteko aldea kalkulatzen da.
   function egunakKalkulatu() {
-    // Daten balioak lortu    
+
+    // <input> elementuen balioa hasieradata eta amaieradata IDekin lortzen da.
     const hasieradataValue = document.getElementById("hasieradata").value;
     const amaieradataValue = document.getElementById("amaieradata").value;
 
-    // Egiaztatu bi datak ospitaleratuta daudela    
+    //Bi eremuek balioak dituztela egiaztatzen da, kalkuluekin jarraitu aurretik.
     if (hasieradataValue && amaieradataValue) {
-      // Bihurtu datak objektu Date
+      // Eremuetako balioak Date objektu bihurtzen dira.
       const hasieradata = new Date(hasieradataValue);
       const amaieradata = new Date(amaieradataValue);
-
-      // Balidatu hasierako data ez izatea azkena baino handiagoa
+      
+      // Hasierako data finalaren ondorengoa bada, errore-mezu bat agertuko da eta funtzioaren exekuzioa geldituko da.
       if (hasieradata > amaieradata) {
         document.getElementById("bidaiaegunak").value = "Error: Fecha inicial mayor.";
         return;
       }
-
-      // Kalkulatu aldea milisegundotan eta bihurtu egunetara
+      // Hasierako data amaierakoari kentzen zaio, milisegundotan aldea lortuz.
       const denboraaldea = amaieradata - hasieradata;
+      // Gero, 1000 * 60 * 60 * 24 zatitzen da diferentzia egunetara bihurtzeko.
       const egunaldea = denboraaldea / (1000 * 60 * 60 * 24);
 
-      // Erakutsi emaitza testu-inputean
+      //"Bidaiaegunak" sarrera-eremuari kalkulatutako egun-kopurua esleituko zaio.
       document.getElementById("bidaiaegunak").value = egunaldea;
     } 
+    // Balioak hutsik badaude, "bidaiaegunak" eremua garbitzen da.
     else {
-      // Dataren bat falta bada, garbitu emaitza
       document.getElementById("bidaiaegunak").value = "";
     }
   }
-
-  // Gehitu gertaerak automatikoki kalkulatzeko datak aldatzean
+  // Event listeners gehitzen dira erabiltzaileak data-eremuen balioa aldatzen duen bakoitzean (input event) automatikoki exekutatzen da funtzio hori.
   document.getElementById("hasieradata").addEventListener("input", egunakKalkulatu);
   document.getElementById("amaieradata").addEventListener("input", egunakKalkulatu);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+// Blokeak erakusteko funtzioa
+// DOMContentLoaded erabiltzen da script-a HTML dokumentua guztiz kargatuta dagoenean bakarrik exekutatzen dela ziurtatzeko.
+document.addEventListener('DOMContentLoaded', function() {
+  // Hiru bloke (div) hautatzen dira eta aukera-botoiak lortzen dira (radio buttons)
   const hegaldiaBlokea = document.getElementById('hegaldiaBlokea');
   const ostatuaBlokea = document.getElementById('ostatuaBlokea');
   const bestebatzukBlokea = document.getElementById('bestebatzukBlokea');
   const zerbitzumotaRadios = document.getElementsByName('zerbitzumota');
 
-  // Lehenengoz, bloke guztiak ezkutatu
+  // Orria kargatzean, bloke guztiak ezkutatuta daude
   hegaldiaBlokea.style.display = 'none';
   ostatuaBlokea.style.display = 'none';
   bestebatzukBlokea.style.display = 'none';
 
-  zerbitzumotaRadios.forEach(radio => {
-      radio.addEventListener('change', function () {
-          if (radio.id === 'btnHegaldia') {
-              // Erakutsi hegaldiaBlokea eta ezkutatu ostatuaBlokea eta bestebatzukBlokea
-              hegaldiaBlokea.style.display = 'block';
-              ostatuaBlokea.style.display = 'none';
-              bestebatzukBlokea.style.display = 'none';
-          } 
-          else if (radio.id === 'btnOstatua') {
-              // Erakutsi ostatuaBlokea eta hegaldiaBlokea eta bestebatzukBlokea ezkutatu
-              hegaldiaBlokea.style.display = 'none';
-              ostatuaBlokea.style.display = 'block';
-              bestebatzukBlokea.style.display = 'none';
-          } 
-          else {
-              // Erakutsi bestebatzukBlokea eta hegaldiaBlokea eta ostatuaBlokea ezkutatu
-              hegaldiaBlokea.style.display = 'none';
-              ostatuaBlokea.style.display = 'none';
-              bestebatzukBlokea.style.display = 'block';
-          }
-      });
-  });
-});
+  // Aukera-botoi bakoitzak aldatzen denean, bloke egokia erakusten da.
+  // Change event listener bat gehitzen zaio bakoitzari, erabiltzaileak bere hautaketa noiz aldatzen duen detektatzeko.
+  for (var i = 0; i < zerbitzumotaRadios.length; i++) {
+    zerbitzumotaRadios[i].addEventListener('change', function() {
 
-document.addEventListener('DOMContentLoaded', function () {
-  const joanBlokea = document.getElementById('joanBlokea');
-  const joanetorriBlokea = document.getElementById('joanetorriBlokea');
-  const hegaldiaRadios = document.getElementsByName('hegaldiMota');
-
-  if (joanBlokea && joanetorriBlokea) {
-    hegaldiaRadios.forEach(radio => {
-        radio.addEventListener('change', function () {
-            if (radio.id === 'btnJoan') {
-              // Erakutsi joanBlokea eta joanetorriBlokea ezkutatu
-              joanBlokea.style.display = 'block';
-              joanetorriBlokea.style.display = 'none';
-            } 
-            else {
-              // Erakutsi joanetorriBlokea y joanBlokea
-              joanBlokea.style.display = 'block';
-              joanetorriBlokea.style.display = 'block';
-            } 
-        });
+      /*Hautatutako button erradioaren IDaren arabera:
+        Dagokion blokea bistaratzen da.
+        Gainerako blokeak ezkutatzen dira.
+        If-else erabiltzen da zein botoi hautatu den egiaztatzeko*/
+      if (this.id === 'btnHegaldia') {
+        hegaldiaBlokea.style.display = 'block';
+        ostatuaBlokea.style.display = 'none';
+        bestebatzukBlokea.style.display = 'none';
+      } else if (this.id === 'btnOstatua') {
+        hegaldiaBlokea.style.display = 'none';
+        ostatuaBlokea.style.display = 'block';
+        bestebatzukBlokea.style.display = 'none';
+      } else {
+        hegaldiaBlokea.style.display = 'none';
+        ostatuaBlokea.style.display = 'none';
+        bestebatzukBlokea.style.display = 'block';
+      }
     });
   }
 });
 
- // Bi dataren arteko egunak kalkulatzeko funtzioa
- function kalkulatuEgunak() {
-  const hasieraData = document.getElementById('hasieradata').value;
-  const amaieraData = document.getElementById('amaieradata').value;
+// HegaldiaBlokeak erakusteko funtzioa
+// DOMContentLoaded erabiltzen da script-a HTML dokumentua guztiz kargatuta dagoenean bakarrik exekutatzen dela ziurtatzeko.
+document.addEventListener('DOMContentLoaded', function() {
+  // Bi bloke (div) hautatzen dira eta aukera-botoiak lortzen dira (radio buttons)
+  const joanBlokea = document.getElementById('joanBlokea');
+  const joanetorriBlokea = document.getElementById('joanetorriBlokea');
+  const hegaldiaRadios = document.getElementsByName('hegaldiMota');
 
-  if (hasieraData && amaieraData) {
-      const hasiera = new Date(hasieraData);
-      const amaiera = new Date(amaieraData);
-      const egunak = Math.ceil((amaiera - hasiera) / (1000 * 60 * 60 * 24));
+  /*Hautatutako button erradioaren IDaren arabera:
+    Dagokion blokea bistaratzen da.
+    Gainerako blokeak ezkutatzen dira.
+    If-else erabiltzen da zein botoi hautatu den egiaztatzeko*/
+  if (joanBlokea && joanetorriBlokea) {
+    for (var i = 0; i < hegaldiaRadios.length; i++) {
+      hegaldiaRadios[i].addEventListener('change', function() {
 
-      if (egunak >= 0) {
-          document.getElementById('bidaiaegunak').value = `${egunak} egun`;
-      } 
-      else {
-          document.getElementById('bidaiaegunak').value = "Errorea: Amaiera data lehenago da";
-      }
+        /*Aukeratutako button erradioak ID="btnJoan" (joaneko hegaldia bakarrik) baldin badu, 
+          joanBlokea bakarrik agertuko da, joanezkoBlokea ezkutatuz.
+          Beste edozein kasutan, bi blokeak erakusten dira.*/
+        if (this.id === 'btnJoan') {
+          joanBlokea.style.display = 'block';
+          joanetorriBlokea.style.display = 'none';
+        } else {
+          joanBlokea.style.display = 'block';
+          joanetorriBlokea.style.display = 'block';
+        }
+      });
+    }
   }
-}
+});
 
-// Inprimakiaren bidalketa maneiatzeko funtzioa (BIDAIA ERREGISTRATU)
+// DOMContentLoaded erabiltzen da script-a HTML dokumentua guztiz kargatuta dagoenean bakarrik exekutatzen dela ziurtatzeko.
+/*Itxaron HTML dokumentua erabat kargatuta egon arte JavaScript kodea exekutatu aurretik.
+  Ondoren, aukeratu inprimakia id="bidaiaForm" aukerarekin, eta gehitu submit ekitaldi bat, 
+  erabiltzaileak formularioa bidaltzen duenean "Gorde formularioa" funtzioa beteko duena.*/
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('bidaiaForm').addEventListener('submit', gordeFormulario);
+});
+
+// Bidaia formularioaren datuak taulan erakusteko funtzioa
 function gordeFormulario(event) {
-  event.preventDefault(); // Orrialdea ez kargatu
+  // Ez bidali formularioa eta ez kargatu orria.
+  event.preventDefault(); 
 
-  // Formularioko datuak atzitu
+  // Formularioan sartutako datuak lortzen dira.
   const izena = document.getElementById('izena').value;
   const bidaiamota = document.getElementById('bidaiamota').value;
   const hasieraData = document.getElementById('hasieradata').value;
@@ -126,67 +130,67 @@ function gordeFormulario(event) {
   const herrialdea = document.getElementById('herrialdea').value;
   const deskribapena = document.getElementById('deskribapena').value;
 
-  // Taulan beste errenkada bat sortu
+  // Taularen gorputza lortzen da, eta lerro bat gehitzen da.
   const tableBody = document.getElementById('laburpen-taula');
-  const row = document.createElement('tr');
-  row.innerHTML = `
-      <td>${izena}</td>
-      <td>${bidaiamota}</td>
-      <td>${hasieraData}</td>
-      <td>${amaieraData}</td>
-      <td>${egunak}</td>
-      <td>${herrialdea}</td>
-      <td>${deskribapena}</td>
-  `;
-  tableBody.appendChild(row);
+  const row = tableBody.insertRow();
 
-  // Erakutsi taula eta izenburua
-  const tablaContenedor = document.getElementById('taula-container');
-  tablaContenedor.style.display = 'block';
+  // Lerro berri batean zutabeak gehitzen dira, eta formularioan sartutako datuak sartzen dira.
+  row.insertCell(0).textContent = izena;
+  row.insertCell(1).textContent = bidaiamota;
+  row.insertCell(2).textContent = hasieraData;
+  row.insertCell(3).textContent = amaieraData;
+  row.insertCell(4).textContent = egunak;
+  row.insertCell(5).textContent = herrialdea;
+  row.insertCell(6).textContent = deskribapena;
 
-  // Formularioa berrabiarazi
+  // Taula erakusten da.
+  document.getElementById('taula-container').style.display = 'block';
+
+  // Formularioa garbitzen da
   document.getElementById('bidaiaForm').reset();
   document.getElementById('bidaiaegunak').value = '';
 }
 
-// Lotu gertaerak orria kargatzean
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('hasieradata').addEventListener('change', kalkulatuEgunak);
-  document.getElementById('amaieradata').addEventListener('change', kalkulatuEgunak);
-  document.getElementById('bidaiaForm').addEventListener('submit', gordeFormulario);
-});
-
-
-
-// Array-ak erabiltzaileen datuekin (administratzailea eta agentziak)
+/* Array users bat definitzen da, non erabiltzaile bakoitza bi balio dituen azpi-array bat den:
+  Lehen balioa: erabiltzaile-izena.
+  Bigarren balioa: pasahitza.*/
 const users = [
-  ['admin', 'admin'],  // [erabiltzailea, pasahitza]
-  ['agentzia1', 'password1'],  // [erabiltzailea, pasahitza]
-  ['agentzia2', 'password2']   // [erabiltzailea, pasahitza]
+  ['admin', 'admin'],
+  ['agentzia1', 'password1'],
+  ['agentzia2', 'password2']
 ];
 
-document.addEventListener('DOMContentLoaded', function () {
+// Login formularioaren datuak egiaztatzeko funtzioa
+// DOMContentLoaded erabiltzen da script-a HTML dokumentua guztiz kargatuta dagoenean bakarrik exekutatzen dela ziurtatzeko.
+document.addEventListener('DOMContentLoaded', function() {
+
+  /*getElementById('loginForm') duen formularioa lortzen da.
+    Event listener bat gehitzen zaio formularioko submit ekitaldiari.
+    event.preventDefault() erabiltzen da, orria berriz karga ez dadin.*/ 
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
-    loginForm.addEventListener('submit', function (event) {
-      event.preventDefault(); // Inprimakia ez bidaltzea
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
 
+      // Erabiltzaile-izena eta pasahitza lortzen dira.
       const username = document.getElementById('erabiltzailea').value;
       const password = document.getElementById('pasahitza').value;
 
-      // Egiaztatu erabiltzailea eta pasahitza zuzenak diren
-      const user = users.find(user => user[0] === username && user[1] === password);
+      // .find() erabiltzen da array users-ean sartutako izen eta pasahitzekin bat datorren erabiltzaile bat bilatzeko.
+      const user = users.find(function(user) {
+        return user[0] === username && user[1] === password;
+      });
+      /*User badago:
+        Ongietorriko mezua bistaratzen du.
+        Honi birbideratzen dio orrinagusia.html.
+        Erabiltzailea aurkitzen ez bada:
+        Alerta bat bistaratzen du, eta erabiltzailearen edo pasahitzaren errorea adierazten du. */
       if (user) {
-        alert(`Ongi etorri, ${username}`);
-        window.location.href = 'orrinagusia.html'; // Orri nagusira zuzendu
+        alert('Ongi etorri, ' + username);
+        window.location.href = 'orrinagusia.html';
       } else {
         alert('Erabiltzaile edo pasahitz okerra');
       }
     });
   }
 });
-
-
-
-
-
