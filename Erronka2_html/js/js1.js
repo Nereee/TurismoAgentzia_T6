@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Gorde formularioa funtzioa
-  function gordeFormulario(event) {
+  function gordeFormularioBidaia(event) {
     event.preventDefault();
 
     const izena = document.getElementById('izena').value;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const herrialdea = document.getElementById('herrialdea').value;
     const deskribapena = document.getElementById('deskribapena').value;
 
-    const tableBody = document.getElementById('laburpen-taula');
+    const tableBody = document.getElementById('laburpen-taula-bidaia');
     const row = tableBody.insertRow();
 
     row.insertCell(0).textContent = izena;
@@ -91,25 +91,23 @@ document.addEventListener('DOMContentLoaded', function() {
     row.insertCell(5).textContent = herrialdea;
     row.insertCell(6).textContent = deskribapena;
 
-    document.getElementById('taula-container').style.display = 'block';
+    document.getElementById('taula-container-bidaia').style.display = 'block';
 
     document.getElementById('bidaiaForm').reset();
     document.getElementById('bidaiaegunak').value = '';
 
   }
-
   const bidaiaForm = document.getElementById('bidaiaForm');
   if (bidaiaForm) {
-    bidaiaForm.addEventListener('submit', gordeFormulario);
+    bidaiaForm.addEventListener('submit', gordeFormularioBidaia);
   }
 
 
-  
-
-  // Zerbitzu formularioa gorde funtzioa
-  function gordeFormulario2(event) {
+  // Zerbitzu hegaldiaren formularioa gorde funtzioa
+  function gordeFormularioHegaldia(event) {
     event.preventDefault();
 
+    const bidaiamota = document.getElementById('bidaiamota').value;
     const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
     const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked').value;
     const jatorrizkoAireportua = document.getElementById('jatorrizkoAireportua').value;
@@ -121,28 +119,142 @@ document.addEventListener('DOMContentLoaded', function() {
     const irteeraOrdua = document.getElementById('irteeraOrdua').value;
     const bidaiIraupena = document.getElementById('bidaiIraupena').value;
 
-    const tableBody = document.getElementById('laburpen-taula2');
+    const tableBody = document.getElementById('laburpen-taula-hegaldia');
     const row = tableBody.insertRow();
 
-    row.insertCell(0).textContent = zerbitzua;
-    row.insertCell(1).textContent = hegaldiMota;
-    row.insertCell(2).textContent = jatorrizkoAireportua;
-    row.insertCell(3).textContent = helmugakoAireportua;
-    row.insertCell(4).textContent = hegaldiKodea;
-    row.insertCell(5).textContent = airelinea;
-    row.insertCell(6).textContent = hegaldiPrezioa;
-    row.insertCell(7).textContent = irteeraData;
-    row.insertCell(8).textContent = irteeraOrdua;
-    row.insertCell(9).textContent = bidaiIraupena;
+    row.insertCell(0).textContent = bidaiamota;
+    row.insertCell(1).textContent = zerbitzua;
+    row.insertCell(2).textContent = hegaldiMota;
+    row.insertCell(3).textContent = jatorrizkoAireportua;
+    row.insertCell(4).textContent = helmugakoAireportua;
+    row.insertCell(5).textContent = hegaldiKodea;
+    row.insertCell(6).textContent = airelinea;
+    row.insertCell(7).textContent = hegaldiPrezioa;
+    row.insertCell(8).textContent = irteeraData;
+    row.insertCell(9).textContent = irteeraOrdua;
+    row.insertCell(10).textContent = bidaiIraupena;
 
-    document.getElementById('taula-container2').style.display = 'block';
+    document.getElementById('taula-container-hegaldia').style.display = 'block';
     document.getElementById('zerbitzuForm').reset();
     
   }
+  const zerbitzuFormHegaldia = document.getElementById('zerbitzuForm');
+  if (zerbitzuFormHegaldia) {
+    zerbitzuFormHegaldia.addEventListener('submit', gordeFormularioHegaldia);
+  }
 
-  const zerbitzuForm = document.getElementById('zerbitzuForm');
-  if (zerbitzuForm) {
-    zerbitzuForm.addEventListener('submit', gordeFormulario2);
+  // Zerbitzu hegaldia bueltaren formularioa gorde funtzioa
+  function gordeFormularioHegaldiaBuelta(event) {
+    event.preventDefault();
+
+    const bidaiamota = document.getElementById('bidaiamota').value;
+    const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
+    const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked').value;
+    const jatorrizkoAireportua = document.getElementById('jatorrizkoAireportua').value;
+    const helmugakoAireportua = document.getElementById('helmugakoAireportua').value;
+    const hegaldiKodea = document.getElementById('hegaldiKodea').value;
+    const airelinea = document.getElementById('airelinea').value;
+    const hegaldiPrezioa = document.getElementById('hegaldiPrezioa').value;
+    const irteeraData = document.getElementById('irteeraData').value;
+    const irteeraOrdua = document.getElementById('irteeraOrdua').value;
+    const bidaiIraupena = document.getElementById('bidaiIraupena').value;
+    const itzuleraData = document.getElementById('itzuleraData').value;
+    const itzuleraOrdua = document.getElementById('itzuleraOrdua').value;
+    const itzulerabidaiIraupena = document.getElementById('itzulerabidaiIraupena').value;
+    const itzulerabidaiKodea = document.getElementById('itzulerabidaiKodea').value;
+    const itzuleraAirelinea = document.getElementById('itzuleraAirelinea').value;
+
+    const tableBody = document.getElementById('laburpen-taula-hegaldiaBuelta');
+    const row = tableBody.insertRow();
+
+    row.insertCell(0).textContent = bidaiamota;
+    row.insertCell(1).textContent = zerbitzua;
+    row.insertCell(2).textContent = hegaldiMota;
+    row.insertCell(3).textContent = jatorrizkoAireportua;
+    row.insertCell(4).textContent = helmugakoAireportua;
+    row.insertCell(5).textContent = hegaldiKodea;
+    row.insertCell(6).textContent = airelinea;
+    row.insertCell(7).textContent = hegaldiPrezioa;
+    row.insertCell(8).textContent = irteeraData;
+    row.insertCell(9).textContent = irteeraOrdua;
+    row.insertCell(10).textContent = bidaiIraupena;
+    row.insertCell(11).textContent = itzuleraData;
+    row.insertCell(12).textContent = itzuleraOrdua;
+    row.insertCell(13).textContent = itzulerabidaiIraupena;
+    row.insertCell(14).textContent = itzulerabidaiKodea;
+    row.insertCell(15).textContent = itzuleraAirelinea;
+
+    document.getElementById('taula-container-hegaldiaBuelta').style.display = 'block';
+    document.getElementById('zerbitzuForm').reset();
+    
+  }
+  const zerbitzuFormHegaldiaBuelta = document.getElementById('zerbitzuForm');
+  if (zerbitzuFormHegaldiaBuelta) {
+    zerbitzuFormHegaldiaBuelta.addEventListener('submit', gordeFormularioHegaldiaBuelta);
+  }
+
+  // Zerbitzu ostatuaren formularioa gorde funtzioa
+  function gordeFormularioOstatua(event) {
+    event.preventDefault();
+
+    const bidaiamota = document.getElementById('bidaiamota').value;
+    const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
+    const hotelIzena = document.getElementById('hotelIzena').value;
+    const hiriaOstatua = document.getElementById('hiriaOstatua').value;
+    const ostatuaPrezioa = document.getElementById('ostatuaPrezioa').value;
+    const ostatuaSarrera = document.getElementById('ostatuaSarrera').value;
+    const ostatuaIrteera = document.getElementById('ostatuaIrteera').value;
+    const ostatuaLogelea = document.getElementById('ostatuaLogelea').value;
+
+    const tableBody = document.getElementById('laburpen-taula-ostatua');
+    const row = tableBody.insertRow();
+
+    row.insertCell(0).textContent = bidaiamota; 
+    row.insertCell(1).textContent = zerbitzua;
+    row.insertCell(2).textContent = hotelIzena;
+    row.insertCell(3).textContent = hiriaOstatua;
+    row.insertCell(4).textContent = ostatuaPrezioa;
+    row.insertCell(5).textContent = ostatuaSarrera;
+    row.insertCell(6).textContent = ostatuaIrteera;
+    row.insertCell(7).textContent = ostatuaLogelea;
+
+    document.getElementById('taula-container-ostatua').style.display = 'block';
+    document.getElementById('zerbitzuForm').reset();
+    
+  }
+  const zerbitzuFormOstatua = document.getElementById('zerbitzuForm');
+  if (zerbitzuFormOstatua) {
+    zerbitzuFormOstatua.addEventListener('submit', gordeFormularioOstatua);
+  }
+
+  // Zerbitzu beste batzuen formularioa gorde funtzioa
+  function gordeFormularioBestebatzuk(event) {
+    event.preventDefault();
+
+    const bidaiamota = document.getElementById('bidaiamota').value;
+    const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
+    const bestebatzukIzena = document.getElementById('bestebatzukIzena').value;
+    const zerbitzuData = document.getElementById('zerbitzuData').value;
+    const zerbitzuDeskribapena = document.getElementById('zerbitzuDeskribapena').value;
+    const zerbitzuPrezioa = document.getElementById('zerbitzuPrezioa').value;
+
+    const tableBody = document.getElementById('laburpen-taula-bestebatzuk');
+    const row = tableBody.insertRow();
+
+    row.insertCell(0).textContent = bidaiamota; 
+    row.insertCell(1).textContent = zerbitzua;
+    row.insertCell(2).textContent = bestebatzukIzena;
+    row.insertCell(3).textContent = zerbitzuData;
+    row.insertCell(4).textContent = zerbitzuDeskribapena;
+    row.insertCell(5).textContent = zerbitzuPrezioa;
+
+    document.getElementById('taula-container-bestebatzuk').style.display = 'block';
+    document.getElementById('zerbitzuForm').reset();
+    
+  }
+  const zerbitzuFormbestebatzuk = document.getElementById('zerbitzuForm');
+  if (zerbitzuFormbestebatzuk) {
+    zerbitzuFormbestebatzuk.addEventListener('submit', gordeFormularioBestebatzuk);
   }
 
   // Login formularioaren datuak egiaztatzeko funtzioa

@@ -76,7 +76,7 @@ tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-#taula-container {
+#taula-container-bidaia {
     display: none;
     margin-top: 20px;
     justify-content: center;
@@ -84,7 +84,31 @@ tr:nth-child(even) {
     width: 100%;
 }
 
-#taula-container2 {
+#taula-container-hegaldia {
+    display: none;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#taula-container-hegaldiaBuelta {
+    display: none;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#taula-container-ostatua {
+    display: none;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#taula-container-bestebatzuk {
     display: none;
     margin-top: 20px;
     justify-content: center;
