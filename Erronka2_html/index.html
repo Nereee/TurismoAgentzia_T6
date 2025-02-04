@@ -1,0 +1,55 @@
+<!-- HTML5 Dokumentu mota bezala definitzen du. -->
+<!DOCTYPE html>
+<!--Orriko hizkuntza nagusia euskaratzat jotzen du (eu). -->
+<html lang="eu">
+    <head>
+        <!-- Karaktereen kodetze mota UTF-8 gisa definitzen du. -->
+        <meta charset="UTF-8">
+        <!-- Edukia gailuaren pantailara egokitzeko aukera ematen du. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!-- Gako-hitzak zehazten duen metaetiketa. -->
+        <meta name="keywords" content="DAM, ElorrietaErrekamari, ML, HTML5">
+        <!-- Orriaren egilea zehazten duen metaetiketa. -->
+        <meta name="author" content="AGM">
+        <!-- Kanpoko bi CSS fitxategi lotzen dira, Style1.css eta Style2.css, diseinu bisualerako. -->
+        <link rel="stylesheet" href="css/style1.css">
+        <link rel="stylesheet" href="css/style2.css">
+        <!-- Nabigatzailearen fitxan agertzen den ikonoa -->
+        <link rel="icon" type="image/x-icon" href="img/logoa.ico">
+        <!-- Kanpoko JS fitxategi bat lotzen da, js1.js, scriptak exekutatzeko. -->
+        <script src="js/js1.js"></script>
+        <!-- Honela definitzen du orrialdearen izenburua: "Hasi Saioa" -->
+        <title>Hasi Saioa</title>
+    </head>
+    <body>
+        <!-- Orrialdearen goiburua definitzen du. -->
+        <header>
+            <abbr title="Talde Logoa"><img id="logoa" src="img/logoa.png" alt="Talde Logoa"></abbr>         
+        </header>
+        <!-- Login formularioa definitzen du, login.php fitxategira bidaltzen duena POST metodoa erabiliz -->
+        <form id="loginForm" name="loginForm" method="post">
+            <fieldset>
+                <!-- Formularioaren izenburua definitzen du -->
+                <legend>Login</legend>
+                <br>
+                <!-- Erabiltzaile izena sartzeko blokea -->
+                <div class="blokea">
+                    <label for="erabiltzailea">Erabiltzailea:</label>
+                    <input type="text" id="erabiltzailea" name="erabiltzailea" placeholder="Sartu erabiltzailea" required>
+                </div>
+                <!-- Pasahitza sartzeko blokea -->
+                <div class="blokea">
+                    <label for="pasahitza">Pasahitza:</label>
+                    <input type="password" id="pasahitza" name="pasahitza" placeholder="Sartu pasahitza" required>
+                </div>
+                <!-- Saioa hasteko botoia -->
+                <div class="blokea">
+                    <input type="submit" id="btnLogin" name="btnLogin" value="Hasi Saioa">
+                </div>
+            </fieldset>
+        </form> 
+        <div id="errore_mezua" style="display: none;">
+            <p>Erabiltzaile edo pasahitz okerra</p>
+        </div>
+    </body>
+</html>

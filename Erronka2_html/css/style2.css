@@ -1,0 +1,64 @@
+body {
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    cursor: pointer;
+    background-color: darkblue;
+    transition: background-color 0.3s ease;
+}
+
+#btnLogout:hover,
+#btnAtzera:hover {
+    cursor: pointer;
+    background-color: rgb(120, 21, 21);
+    transition: background-color 0.3s ease;
+}
+
+#logoa:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: lightsalmon;
+}
+
+footer a:visited {
+    color: salmon;
+    text-decoration: none;
+}
+
+footer a:active {
+    color: red;
+    text-decoration: solid;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer img {
+    height: 35px;
+    transition: transform 0.2s;
+}
+
+footer img:hover {
+    transform: scale(1.2);
+}
+
+.logo_f {
+    border-radius: 5px;
+}
+
+.sare-sozialak a {
+    margin: 0 10px;
+    display: inline-block;
+}
