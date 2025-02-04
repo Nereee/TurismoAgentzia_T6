@@ -39,19 +39,6 @@ body {
     max-width: 300px;
 }
 
-.error-message, .success-message {
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-.error-message {
-    color: red;
-}
-
-.success-message {
-    color: green;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -159,6 +146,12 @@ textarea{
 
 .blokea {
     margin-bottom: 15px;
+}
+
+#errore_mezua {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 #logoa {

@@ -1,15 +1,14 @@
 <?php
-    // Datu baserako konexioko parametroak
     $servername = "localhost:3307";
     $username = "root";
     $password = "";
-    $dbname = "";
+    $dbname = "turismo";
 
-    // Konexioa egin
+    // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Konexioa egiaztatu
+    // Check connection
     if ($conn->connect_error) {
-        die("Konexio errorea: " . $conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
     }
 ?>

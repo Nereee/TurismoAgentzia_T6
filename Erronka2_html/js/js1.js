@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Egunak kalkulatzejako funtzioa
   function egunakKalkulatu() {
-    const hasieradataValue = document.getElementById("hasieradata")?.value;
-    const amaieradataValue = document.getElementById("amaieradata")?.value;
+    const hasieradataValue = document.getElementById("Data_Hasiera")?.value;
+    const amaieradataValue = document.getElementById("Data_Amaiera")?.value;
 
     if (hasieradataValue && amaieradataValue) {
       const hasieradata = new Date(hasieradataValue);
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  const hasieradataElement = document.getElementById("hasieradata");
-  const amaieradataElement = document.getElementById("amaieradata");
+  const hasieradataElement = document.getElementById("Data_Hasiera");
+  const amaieradataElement = document.getElementById("Data_Amaiera");
 
   if (hasieradataElement) {
     hasieradataElement.addEventListener("input", egunakKalkulatu);
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hegaldiaBlokea = document.getElementById('hegaldiaBlokea');
     const ostatuaBlokea = document.getElementById('ostatuaBlokea');
     const bestebatzukBlokea = document.getElementById('bestebatzukBlokea');
-    const hautatua = document.querySelector('input[name="zerbitzumota"]:checked')?.id;
+    const hautatua = document.querySelector('input[name="ID_Bidaiak"]:checked')?.id;
 
     //if-else bezalako funtzio bat da
     hegaldiaBlokea.style.display = (hautatua === 'btnHegaldia') ? 'block' : 'none';
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     bestebatzukBlokea.style.display = (!hautatua || hautatua === 'btnBestebatzuk') ? 'block' : 'none';
   }
 
-  document.getElementsByName('zerbitzumota').forEach(radio => {
+  document.getElementsByName('ID_Bidaiak').forEach(function(radio) {
     radio.addEventListener('change', zerbitzuMotaEguneratu);
   });
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  document.getElementsByName('hegaldiMota').forEach(radio => {
+  document.getElementsByName('hegaldiMota').forEach(function(radio) {
     radio.addEventListener('change', hegaldiaEguneratu);
   });
 
@@ -72,13 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioBidaia(event) {
     event.preventDefault();
 
-    const izena = document.getElementById('izena').value;
-    const bidaiamota = document.getElementById('bidaiamota').value;
-    const hasieraData = document.getElementById('hasieradata').value;
-    const amaieraData = document.getElementById('amaieradata').value;
+    const izena = document.getElementById('Izena').value;
+    const bidaiamota = document.getElementById('Kod_Mota').value;
+    const hasieraData = document.getElementById('Data_Hasiera').value;
+    const amaieraData = document.getElementById('Data_Amaiera').value;
     const egunak = document.getElementById('bidaiaegunak').value;
-    const herrialdea = document.getElementById('herrialdea').value;
-    const deskribapena = document.getElementById('deskribapena').value;
+    const herrialdea = document.getElementById('ID_Herrialdeak').value;
+    const deskribapena = document.getElementById('Deskribapena').value;
+    const aerolinea = document.getElementById('Aerolinea').value;
 
     const tableBody = document.getElementById('laburpen-taula-bidaia');
     const row = tableBody.insertRow();
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     row.insertCell(4).textContent = egunak;
     row.insertCell(5).textContent = herrialdea;
     row.insertCell(6).textContent = deskribapena;
+    row.insertCell(7).textContent = aerolinea;
 
     document.getElementById('taula-container-bidaia').style.display = 'block';
 
@@ -107,17 +109,17 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioHegaldia(event) {
     event.preventDefault();
 
-    const bidaiamota = document.getElementById('bidaiamota').value;
-    const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
+    const bidaiamota = document.getElementById('Kod_Mota').value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
     const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked').value;
-    const jatorrizkoAireportua = document.getElementById('jatorrizkoAireportua').value;
-    const helmugakoAireportua = document.getElementById('helmugakoAireportua').value;
-    const hegaldiKodea = document.getElementById('hegaldiKodea').value;
-    const airelinea = document.getElementById('airelinea').value;
-    const hegaldiPrezioa = document.getElementById('hegaldiPrezioa').value;
-    const irteeraData = document.getElementById('irteeraData').value;
-    const irteeraOrdua = document.getElementById('irteeraOrdua').value;
-    const bidaiIraupena = document.getElementById('bidaiIraupena').value;
+    const jatorrizkoAireportua = document.getElementById('Jatorrizko').value;
+    const helmugakoAireportua = document.getElementById('Helmuga').value;
+    const hegaldiKodea = document.getElementById('Hegaldi_Kod').value;
+    const airelinea = document.getElementById('Aerolinea').value;
+    const hegaldiPrezioa = document.getElementById('Prezioa').value;
+    const irteeraData = document.getElementById('Irteera_Data').value;
+    const irteeraOrdua = document.getElementById('Irteera_Ordua').value;
+    const bidaiIraupena = document.getElementById('Iraupena').value;
 
     const tableBody = document.getElementById('laburpen-taula-hegaldia');
     const row = tableBody.insertRow();
@@ -147,22 +149,22 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioHegaldiaBuelta(event) {
     event.preventDefault();
 
-    const bidaiamota = document.getElementById('bidaiamota').value;
-    const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
+    const bidaiamota = document.getElementById('Kod_Mota').value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
     const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked').value;
-    const jatorrizkoAireportua = document.getElementById('jatorrizkoAireportua').value;
-    const helmugakoAireportua = document.getElementById('helmugakoAireportua').value;
-    const hegaldiKodea = document.getElementById('hegaldiKodea').value;
-    const airelinea = document.getElementById('airelinea').value;
-    const hegaldiPrezioa = document.getElementById('hegaldiPrezioa').value;
-    const irteeraData = document.getElementById('irteeraData').value;
-    const irteeraOrdua = document.getElementById('irteeraOrdua').value;
-    const bidaiIraupena = document.getElementById('bidaiIraupena').value;
+    const jatorrizkoAireportua = document.getElementById('Jatorrizko').value;
+    const helmugakoAireportua = document.getElementById('Helmuga').value;
+    const hegaldiKodea = document.getElementById('Hegaldi_Kod').value;
+    const airelinea = document.getElementById('Aerolinea').value;
+    const hegaldiPrezioa = document.getElementById('Prezioa').value;
+    const irteeraData = document.getElementById('Irteera_Data').value;
+    const irteeraOrdua = document.getElementById('Irteera_Ordua').value;
+    const bidaiIraupena = document.getElementById('Iraupena').value;
     const itzuleraData = document.getElementById('itzuleraData').value;
     const itzuleraOrdua = document.getElementById('itzuleraOrdua').value;
     const itzulerabidaiIraupena = document.getElementById('itzulerabidaiIraupena').value;
     const itzulerabidaiKodea = document.getElementById('itzulerabidaiKodea').value;
-    const itzuleraAirelinea = document.getElementById('itzuleraAirelinea').value;
+    const itzuleraAirelinea = document.getElementById('itzuleraAerolinea').value;
 
     const tableBody = document.getElementById('laburpen-taula-hegaldiaBuelta');
     const row = tableBody.insertRow();
@@ -197,14 +199,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioOstatua(event) {
     event.preventDefault();
 
-    const bidaiamota = document.getElementById('bidaiamota').value;
-    const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
-    const hotelIzena = document.getElementById('hotelIzena').value;
+    const bidaiamota = document.getElementById('Kod_Mota').value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
+    const hotelIzena = document.getElementById('Hotelaren_Izena').value;
     const hiriaOstatua = document.getElementById('hiriaOstatua').value;
     const ostatuaPrezioa = document.getElementById('ostatuaPrezioa').value;
-    const ostatuaSarrera = document.getElementById('ostatuaSarrera').value;
-    const ostatuaIrteera = document.getElementById('ostatuaIrteera').value;
-    const ostatuaLogelea = document.getElementById('ostatuaLogelea').value;
+    const ostatuaSarrera = document.getElementById('Sarrera_Eguna').value;
+    const ostatuaIrteera = document.getElementById('Irteera_Eguna').value;
+    const ostatuaLogelea = document.getElementById('Logela_Mota').value;
 
     const tableBody = document.getElementById('laburpen-taula-ostatua');
     const row = tableBody.insertRow();
@@ -231,10 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioBestebatzuk(event) {
     event.preventDefault();
 
-    const bidaiamota = document.getElementById('bidaiamota').value;
-    const zerbitzua = document.querySelector('input[name="zerbitzumota"]:checked').value;
-    const bestebatzukIzena = document.getElementById('bestebatzukIzena').value;
-    const zerbitzuData = document.getElementById('zerbitzuData').value;
+    const bidaiamota = document.getElementById('Kod_Mota').value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
+    const bestebatzukIzena = document.getElementById('IzenaBesteBatzuk').value;
+    const zerbitzuData = document.getElementById('Eguna').value;
     const zerbitzuDeskribapena = document.getElementById('zerbitzuDeskribapena').value;
     const zerbitzuPrezioa = document.getElementById('zerbitzuPrezioa').value;
 
@@ -283,10 +285,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       if (userFound) {
-        alert('Ongi etorri, ' + username);
         window.location.href = 'orrinagusia.html';
-      } else {
-        alert('Erabiltzaile edo pasahitz okerra');
+      } 
+      else {
+          document.getElementById("errore_mezua").style.display = "block"; 
       }
     });
   }
