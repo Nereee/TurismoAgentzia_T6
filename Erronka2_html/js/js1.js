@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bidaiamota = document.getElementById('Kod_Mota').value;
     const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
     const hotelIzena = document.getElementById('Hotelaren_Izena').value;
-    const hiriaOstatua = document.getElementById('hiriaOstatua').value;
+    const hiriaOstatua = document.getElementById('Hiria').value;
     const ostatuaPrezioa = document.getElementById('ostatuaPrezioa').value;
     const ostatuaSarrera = document.getElementById('Sarrera_Eguna').value;
     const ostatuaIrteera = document.getElementById('Irteera_Eguna').value;
