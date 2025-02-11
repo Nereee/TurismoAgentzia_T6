@@ -1,5 +1,6 @@
 <?php
     include 'server/konexioa.php';
+
     $queryKod_Mota = mysqli_query($conn, "SELECT Kod, Mota FROM bidaia_mota");
 
     $queryID_Herrialdeak = mysqli_query($conn, "SELECT ID, Izena FROM herrialdea");
@@ -14,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <meta name="keywords" content="DAM, ElorrietaErrekamari, ML, HTML5">
     <meta name="author" content="AGM">
+    <!-- Kanpoko CSS fitxategi bat lotzen da, Style1.css, diseinu bisualerako. -->
     <link rel="stylesheet" href="css/style1.css">
-    <link rel="stylesheet" href="css/style2.css">
     <link rel="icon" type="image/x-icon" href="img/logoa.ico">
     <script src="js/js1.js"></script>
     <title>Bidaia Erregistratu</title>
@@ -24,6 +25,7 @@
     <header>
         <abbr title="Orri Nagusia"><a href="orrinagusia.html"><img id="logoa" src="img/logoa.png" alt="Talde Logoa"></a></abbr>            
         <input type="button" id="btnAtzera" onclick="location.href='orrinagusia.html'" value="↩">
+        <div id="agentziaBistaratu"></div>
     </header>
     <main>
         <form id="bidaiaForm" name="bidaiaForm" method="post">
@@ -104,8 +106,8 @@
                 </div>
             </fieldset>
         </form>
-        <div id="taula-container-bidaia"> 
-            <table>
+        <div id="taula-container-bidaia" style="display: none;"> 
+            <table id="laburpen-taula-bidaia">
                 <thead>
                     <tr>
                         <th colspan="8">Bidaia Erregistratuen Laburpena</th>
@@ -121,7 +123,7 @@
                         <th>Aerolinea</th>
                     </tr>
                 </thead>
-                <tbody id="laburpen-taula-bidaia">
+                <tbody>
                 </tbody>
             </table>
         </div>
@@ -140,6 +142,6 @@
 </html>
 
 <?php
-// Cerrar la conexión a la base de datos
-mysqli_close($conn);
+    // Cerrar la conexión a la base de datos
+    mysqli_close($conn);
 ?>
