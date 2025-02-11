@@ -15,7 +15,6 @@
 
 ?>
 
-
 <!-- HTML5 Dokumentu mota bezala definitzen du. -->
 <!DOCTYPE html>
 <!--Orriko hizkuntza nagusia euskaratzat jotzen du (eu). -->
@@ -41,7 +40,8 @@
         <!-- Orrialdearen goiburua definitzen du. -->
         <header>
             <!-- Talde logotipoa -->
-            <abbr title="Orri Nagusia"><a href="orrinagusia.html"><img id="logoa" src="img/logoa.png" alt="Talde Logoa"></a></abbr>            <!-- Saioa amaitzeko botoia -->
+            <abbr title="Orri Nagusia"><a href="orrinagusia.html"><img id="logoa" src="img/logoa.png" alt="Talde Logoa"></a></abbr>            
+            <!-- Atzerantz joateko botoia  -->
             <button type="button" id="btnAtzera" onclick="location.href='orrinagusia.html'">↩</button>
         </header>
         <!-- Zerbitzua erregistratzeko formularioa -->
@@ -54,8 +54,8 @@
                     <!-- Bidaia mota sartzeko blokea -->
                     <div class="blokea">
                         <label for="Kod_Mota">Bidaia Mota:</label>
-                        <select name="Kod_Mota" id="Kod_Mota">
-                            <option value="--Aukeratu--">--Aukeratu--</option>
+                        <select name="Kod_Mota" id="Kod_Mota" required>
+                            <option value="">--Aukeratu--</option>
                             <?php
                             while ($bidaia_mota = mysqli_fetch_array($queryKod_Mota)) {
                                 echo "<option value='" . $bidaia_mota['Kod'] . "'>" . $bidaia_mota['Mota'] . "</option>";
@@ -89,7 +89,7 @@
                             <!-- Jatorrizko aireportua hautatzeko blokea -->
                             <label for="Jatorrizko">Jatorrizko Aireportua:</label>
                             <select name="Jatorrizko" id="Jatorrizko">
-                                <option value="--Aukeratu--">--Aukeratu--</option>
+                                <option value="">--Aukeratu--</option>
                                 <?php
                                 while ($aireportuak = mysqli_fetch_array($queryJatorrizkoAireportua)) {
                                     echo "<option value='" . $aireportuak['Aireportu'] . "'>" . $aireportuak['Hiria'] . "</option>";
@@ -100,7 +100,7 @@
                             <div class="blokea">
                                 <label for="Helmuga">Helmugako Aireportua:</label>
                                 <select name="Helmuga" id="Helmuga">
-                                    <option value="--Aukeratu--">--Aukeratu--</option>
+                                    <option value="">--Aukeratu--</option>
                                     <?php
                                     while ($aireportuak = mysqli_fetch_array($queryHelmugakoAireportua)) {
                                         echo "<option value='" . $aireportuak['Aireportu'] . "'>" . $aireportuak['Hiria'] . "</option>";
@@ -117,7 +117,7 @@
                             <div class="blokea">
                                 <label for="Aerolinea">Aerolinea:</label>
                                 <select name="Aerolinea" id="Aerolinea" >
-                                    <option value="--Aukeratu--">--Aukeratu--</option>
+                                    <option value="">--Aukeratu--</option>
                                     <?php
                                     while ($aerolinea = mysqli_fetch_array($queryAerolinea)) {
                                         echo "<option value='" . $aerolinea['Kod'] . "'>" . $aerolinea['Izena'] . "</option>";
@@ -169,7 +169,7 @@
                                 <div class="blokea">
                                     <label for="itzuleraAerolinea">Bueltako Aerolinea:</label>
                                     <select name="itzuleraAerolinea" id="itzuleraAerolinea">
-                                        <option value="--Aukeratu--">--Aukeratu--</option>
+                                        <option value="">--Aukeratu--</option>
                                         <?php
                                         while ($aerolinea = mysqli_fetch_array($queryBueltakoAerolinea)) {
                                             echo "<option value='" . $aerolinea['Kod'] . "'>" . $aerolinea['Izena'] . "</option>";
@@ -211,7 +211,7 @@
                         <div class="blokea">
                             <label for="Logela_Mota">Logela Mota:</label>
                             <select name="Logela_Mota" id="Logela_Mota">
-                                <option value="--Aukeratu--">--Aukeratu--</option>
+                                <option value="">--Aukeratu--</option>
                                 <?php
                                 while ($logela_mota = mysqli_fetch_array($queryLogelaMota)) {
                                     echo "<option value='" . $logela_mota['Kod'] . "'>" . $logela_mota['Mota'] . "</option>";

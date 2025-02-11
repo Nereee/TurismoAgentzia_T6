@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const egunaldea = denboraaldea / (1000 * 60 * 60 * 24);
 
       document.getElementById("bidaiaegunak").value = egunaldea;
-    } else {
+    } 
+    else {
       document.getElementById("bidaiaegunak").value = "";
     }
   }
@@ -58,7 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hautatua === 'btnJoan') {
       joanBlokea.style.display = 'block';
       joanetorriBlokea.style.display = 'none';
-    } else {
+    } 
+    else {
       joanBlokea.style.display = 'block';
       joanetorriBlokea.style.display = 'block';
     }
@@ -72,14 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioBidaia(event) {
     event.preventDefault();
 
-    const izena = document.getElementById('Izena').value;
-    const bidaiamota = document.getElementById('Kod_Mota').value;
-    const hasieraData = document.getElementById('Data_Hasiera').value;
-    const amaieraData = document.getElementById('Data_Amaiera').value;
-    const egunak = document.getElementById('bidaiaegunak').value;
-    const herrialdea = document.getElementById('ID_Herrialdeak').value;
-    const deskribapena = document.getElementById('Deskribapena').value;
-    const aerolinea = document.getElementById('Aerolinea').value;
+    const izena = document.getElementById('Izena')?.value;
+    const bidaiamota = document.getElementById('Kod_Mota')?.value;
+    const hasieraData = document.getElementById('Data_Hasiera')?.value;
+    const amaieraData = document.getElementById('Data_Amaiera')?.value;
+    const egunak = document.getElementById('bidaiaegunak')?.value;
+    const herrialdea = document.getElementById('ID_Herrialdeak')?.value;
+    const deskribapena = document.getElementById('Deskribapena')?.value;
+    const aerolinea = document.getElementById('Aerolinea')?.value;
 
     const tableBody = document.getElementById('laburpen-taula-bidaia');
     const row = tableBody.insertRow();
@@ -109,17 +111,17 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioHegaldia(event) {
     event.preventDefault();
 
-    const bidaiamota = document.getElementById('Kod_Mota').value;
-    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
-    const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked').value;
-    const jatorrizkoAireportua = document.getElementById('Jatorrizko').value;
-    const helmugakoAireportua = document.getElementById('Helmuga').value;
-    const hegaldiKodea = document.getElementById('Hegaldi_Kod').value;
-    const airelinea = document.getElementById('Aerolinea').value;
-    const hegaldiPrezioa = document.getElementById('Prezioa').value;
-    const irteeraData = document.getElementById('Irteera_Data').value;
-    const irteeraOrdua = document.getElementById('Irteera_Ordua').value;
-    const bidaiIraupena = document.getElementById('Iraupena').value;
+    const bidaiamota = document.getElementById('Kod_Mota')?.value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked')?.value;
+    const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked')?.value;
+    const jatorrizkoAireportua = document.getElementById('Jatorrizko')?.value;
+    const helmugakoAireportua = document.getElementById('Helmuga')?.value;
+    const hegaldiKodea = document.getElementById('Hegaldi_Kod')?.value;
+    const airelinea = document.getElementById('Aerolinea')?.value;
+    const hegaldiPrezioa = document.getElementById('Prezioa')?.value;
+    const irteeraData = document.getElementById('Irteera_Data')?.value;
+    const irteeraOrdua = document.getElementById('Irteera_Ordua')?.value;
+    const bidaiIraupena = document.getElementById('Iraupena')?.value;
 
     const tableBody = document.getElementById('laburpen-taula-hegaldia');
     const row = tableBody.insertRow();
@@ -149,22 +151,22 @@ document.addEventListener('DOMContentLoaded', function() {
   function gordeFormularioHegaldiaBuelta(event) {
     event.preventDefault();
 
-    const bidaiamota = document.getElementById('Kod_Mota').value;
-    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
-    const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked').value;
-    const jatorrizkoAireportua = document.getElementById('Jatorrizko').value;
-    const helmugakoAireportua = document.getElementById('Helmuga').value;
-    const hegaldiKodea = document.getElementById('Hegaldi_Kod').value;
-    const airelinea = document.getElementById('Aerolinea').value;
-    const hegaldiPrezioa = document.getElementById('Prezioa').value;
-    const irteeraData = document.getElementById('Irteera_Data').value;
-    const irteeraOrdua = document.getElementById('Irteera_Ordua').value;
-    const bidaiIraupena = document.getElementById('Iraupena').value;
-    const itzuleraData = document.getElementById('itzuleraData').value;
-    const itzuleraOrdua = document.getElementById('itzuleraOrdua').value;
-    const itzulerabidaiIraupena = document.getElementById('itzulerabidaiIraupena').value;
-    const itzulerabidaiKodea = document.getElementById('itzulerabidaiKodea').value;
-    const itzuleraAirelinea = document.getElementById('itzuleraAerolinea').value;
+    const bidaiamota = document.getElementById('Kod_Mota')?.value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked')?.value;
+    const hegaldiMota = document.querySelector('input[name="hegaldiMota"]:checked')?.value;
+    const jatorrizkoAireportua = document.getElementById('Jatorrizko')?.value;
+    const helmugakoAireportua = document.getElementById('Helmuga')?.value;
+    const hegaldiKodea = document.getElementById('Hegaldi_Kod')?.value;
+    const airelinea = document.getElementById('Aerolinea')?.value;
+    const hegaldiPrezioa = document.getElementById('Prezioa')?.value;
+    const irteeraData = document.getElementById('Irteera_Data')?.value;
+    const irteeraOrdua = document.getElementById('Irteera_Ordua')?.value;
+    const bidaiIraupena = document.getElementById('Iraupena')?.value;
+    const itzuleraData = document.getElementById('itzuleraData')?.value;
+    const itzuleraOrdua = document.getElementById('itzuleraOrdua')?.value;
+    const itzulerabidaiIraupena = document.getElementById('itzulerabidaiIraupena')?.value;
+    const itzulerabidaiKodea = document.getElementById('itzulerabidaiKodea')?.value;
+    const itzuleraAirelinea = document.getElementById('itzuleraAerolinea')?.value;
 
     const tableBody = document.getElementById('laburpen-taula-hegaldiaBuelta');
     const row = tableBody.insertRow();
@@ -198,19 +200,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Zerbitzu ostatuaren formularioa gorde funtzioa
   function gordeFormularioOstatua(event) {
     event.preventDefault();
-
-    const bidaiamota = document.getElementById('Kod_Mota').value;
-    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
-    const hotelIzena = document.getElementById('Hotelaren_Izena').value;
-    const hiriaOstatua = document.getElementById('Hiria').value;
-    const ostatuaPrezioa = document.getElementById('ostatuaPrezioa').value;
-    const ostatuaSarrera = document.getElementById('Sarrera_Eguna').value;
-    const ostatuaIrteera = document.getElementById('Irteera_Eguna').value;
-    const ostatuaLogelea = document.getElementById('Logela_Mota').value;
-
+  
+    const bidaiamota = document.getElementById('Kod_Mota')?.value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked')?.value;
+    const hotelIzena = document.getElementById('Hotelaren_Izena')?.value;
+    const hiriaOstatua = document.getElementById('Hiria')?.value;
+    const ostatuaPrezioa = document.getElementById('ostatuaPrezioa')?.value;
+    const ostatuaSarrera = document.getElementById('Sarrera_Eguna')?.value;
+    const ostatuaIrteera = document.getElementById('Irteera_Eguna')?.value;
+    const ostatuaLogelea = document.getElementById('Logela_Mota')?.value;
+  
     const tableBody = document.getElementById('laburpen-taula-ostatua');
     const row = tableBody.insertRow();
-
+  
     row.insertCell(0).textContent = bidaiamota; 
     row.insertCell(1).textContent = zerbitzua;
     row.insertCell(2).textContent = hotelIzena;
@@ -219,10 +221,9 @@ document.addEventListener('DOMContentLoaded', function() {
     row.insertCell(5).textContent = ostatuaSarrera;
     row.insertCell(6).textContent = ostatuaIrteera;
     row.insertCell(7).textContent = ostatuaLogelea;
-
-    document.getElementById('taula-container-ostatua').style.display = 'block';
+  
+    document.getElementById('taula-container-ostatua').style.display = 'block'; // Mostrar tabla ostatua
     document.getElementById('zerbitzuForm').reset();
-    
   }
   const zerbitzuFormOstatua = document.getElementById('zerbitzuForm');
   if (zerbitzuFormOstatua) {
@@ -232,27 +233,26 @@ document.addEventListener('DOMContentLoaded', function() {
   // Zerbitzu beste batzuen formularioa gorde funtzioa
   function gordeFormularioBestebatzuk(event) {
     event.preventDefault();
-
-    const bidaiamota = document.getElementById('Kod_Mota').value;
-    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked').value;
-    const bestebatzukIzena = document.getElementById('IzenaBesteBatzuk').value;
-    const zerbitzuData = document.getElementById('Eguna').value;
-    const zerbitzuDeskribapena = document.getElementById('zerbitzuDeskribapena').value;
-    const zerbitzuPrezioa = document.getElementById('zerbitzuPrezioa').value;
-
+  
+    const bidaiamota = document.getElementById('Kod_Mota')?.value;
+    const zerbitzua = document.querySelector('input[name="ID_Bidaiak"]:checked')?.value;
+    const bestebatzukIzena = document.getElementById('IzenaBesteBatzuk')?.value;
+    const zerbitzuData = document.getElementById('Eguna')?.value;
+    const zerbitzuDeskribapena = document.getElementById('zerbitzuDeskribapena')?.value;
+    const zerbitzuPrezioa = document.getElementById('zerbitzuPrezioa')?.value;
+  
     const tableBody = document.getElementById('laburpen-taula-bestebatzuk');
     const row = tableBody.insertRow();
-
+  
     row.insertCell(0).textContent = bidaiamota; 
     row.insertCell(1).textContent = zerbitzua;
     row.insertCell(2).textContent = bestebatzukIzena;
     row.insertCell(3).textContent = zerbitzuData;
     row.insertCell(4).textContent = zerbitzuDeskribapena;
     row.insertCell(5).textContent = zerbitzuPrezioa;
-
-    document.getElementById('taula-container-bestebatzuk').style.display = 'block';
+  
+    document.getElementById('taula-container-bestebatzuk').style.display = 'block'; 
     document.getElementById('zerbitzuForm').reset();
-    
   }
   const zerbitzuFormbestebatzuk = document.getElementById('zerbitzuForm');
   if (zerbitzuFormbestebatzuk) {
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'orrinagusia.html';
       } 
       else {
-          document.getElementById("errore_mezua").style.display = "block"; 
+        document.getElementById("errore_mezua").style.display = "block"; 
       }
     });
   }

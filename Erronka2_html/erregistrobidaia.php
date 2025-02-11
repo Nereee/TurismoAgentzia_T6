@@ -40,7 +40,7 @@
                 <!-- Bidaia Mota -->
                 <div class="blokea">
                     <label for="Kod_Mota">Bidaia Mota:</label>
-                    <select name="Kod_Mota" id="Kod_Mota">
+                    <select name="Kod_Mota" id="Kod_Mota" required>
                         <option value="">--Aukeratu--</option>
                         <?php
                         while ($bidaia_mota = mysqli_fetch_array($queryKod_Mota)) {
@@ -71,8 +71,8 @@
                 <!-- Herrialdea -->
                 <div class="blokea">
                     <label for="ID_Herrialdeak">Herrialdea:</label>
-                    <select name="ID_Herrialdeak" id="ID_Herrialdeak">
-                        <option value="--Aukeratu--">--Aukeratu--</option>
+                    <select name="ID_Herrialdeak" id="ID_Herrialdeak" required>
+                        <option value="">--Aukeratu--</option>
                         <?php
                         while ($herrialdea = mysqli_fetch_array($queryID_Herrialdeak)) {
                             echo "<option value='" . $herrialdea['ID'] . "'>" . $herrialdea['Izena'] . "</option>";
@@ -84,14 +84,14 @@
                 <!-- Deskribapena -->
                 <div>
                     <label for="Deskribapena">Deskribapena:</label>
-                    <textarea id="Deskribapena" name="Deskribapena" rows="4" cols="50" placeholder="Sartu zure bidaiaren deskribapena" required></textarea>
+                    <textarea id="Deskribapena" name="Deskribapena" rows="4" cols="50" placeholder="Sartu zure bidaiaren deskribapena"></textarea>
                 </div>
 
                 <!-- Kanpo Zerbitzu -->
                 <div>
                     <label for="Aerolinea">Aerolinea:</label>
-                    <select name="Aerolinea" id="Aerolinea">
-                        <option value="--Aukeratu--">--Aukeratu--</option>
+                    <select name="Aerolinea" id="Aerolinea" required>
+                        <option value="">--Aukeratu--</option>
                         <?php
                         while ($aerolinea = mysqli_fetch_array($queryAerolinea)) {
                             echo "<option value='" . $aerolinea['Kod'] . "'>" . $aerolinea['Izena'] . "</option>";
