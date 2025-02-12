@@ -130,7 +130,7 @@
     </main>
     <footer>
         <br>
-        <p>Zerbitzua Erregistratu | Mugagabe</p>
+        <p>Bidaia Erregistratu | Mugagabe</p>
         <br>
         <div class="sare-sozialak">
             <abbr title="Instagram"><a href="https://www.instagram.com/?hl=es" target="_blank"><img src="img/insta.png" alt="Insta logoa" height="35"></a></abbr> 

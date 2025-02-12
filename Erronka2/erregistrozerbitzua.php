@@ -88,7 +88,7 @@
                             <div class="blokea" id="joanBlokea" style="display: none;">
                                 <!-- Jatorrizko aireportua hautatzeko blokea -->
                                 <label for="Jatorrizko">Jatorrizko Aireportua:</label>
-                                <select name="Jatorrizko" id="Jatorrizko">
+                                <select name="Jatorrizko" id="Jatorrizko" required>
                                     <option value="">--Aukeratu--</option>
                                     <?php
                                     while ($aireportuak = mysqli_fetch_array($queryJatorrizkoAireportua)) {
@@ -99,7 +99,7 @@
                                 <!-- Helmugako aireportua hautatzeko blokea -->
                                 <div class="blokea">
                                     <label for="Helmuga">Helmugako Aireportua:</label>
-                                    <select name="Helmuga" id="Helmuga">
+                                    <select name="Helmuga" id="Helmuga" required>
                                         <option value="">--Aukeratu--</option>
                                         <?php
                                         while ($aireportuak = mysqli_fetch_array($queryHelmugakoAireportua)) {
@@ -111,12 +111,12 @@
                                 <!-- Hegaldi kodea adierazteko blookea -->
                                 <div class="blokea">
                                     <label for="Hegaldi_Kod">Hegaldi Kodea:</label>
-                                    <input type="text" name="Hegaldi_Kod" id="Hegaldi_Kod" placeholder="Sartu hegaldiaren kodea">
+                                    <input type="text" name="Hegaldi_Kod" id="Hegaldi_Kod" placeholder="Sartu hegaldiaren kodea" required>
                                 </div>
                                 <!-- Airelinea hautatzeko blokea -->
                                 <div class="blokea">
                                     <label for="Aerolinea">Aerolinea:</label>
-                                    <select name="Aerolinea" id="Aerolinea" >
+                                    <select name="Aerolinea" id="Aerolinea" required>
                                         <option value="">--Aukeratu--</option>
                                         <?php
                                         while ($aerolinea = mysqli_fetch_array($queryAerolinea)) {
@@ -128,22 +128,22 @@
                                 <!-- Hegaldiaren prezioa adierazteko blokea -->
                                 <div class="blokea">
                                     <label for="Prezioa">Prezioa (€):</label>
-                                    <input type="number" name="Prezioa" id="Prezioa" placeholder="Sartu hegaldiaren prezioa">
+                                    <input type="number" name="Prezioa" id="Prezioa" placeholder="Sartu hegaldiaren prezioa" required>
                                 </div>
                                 <!-- Hegaldiaren irteera data adierazteko blokea -->
                                 <div class="blokea">
                                     <label for="Irteera_Data">Irteera Data:</label>
-                                    <input type="date" name="Irteera_Data" id="Irteera_Data">
+                                    <input type="date" name="Irteera_Data" id="Irteera_Data" required>
                                 </div>
                                 <!-- Hegaldiaren irteera ordua adierazteko blokea -->
                                 <div class="blokea">
                                     <label for="Irteera_Ordua">Irteera Ordua:</label>
-                                    <input type="time" name="Irteera_Ordua" id="Irteera_Ordua">
+                                    <input type="time" name="Irteera_Ordua" id="Irteera_Ordua" required>
                                 </div>
                                 <!-- Hegaldiaren iraupena -->
                                 <div class="blokea">
                                     <label for="Iraupena">Bidaiaren Iraupena (Orduetan):</label>
-                                    <input type="text" name="Iraupena" id="Iraupena" placeholder="Sartu hegaldiaren iraupena">
+                                    <input type="text" name="Iraupena" id="Iraupena" placeholder="Sartu hegaldiaren iraupena" required>
                                 </div>
                                 <!-- Gordetzeko botoia -->
                                 <input type="submit" id="hegaldiaGordeJoan" name="hegaldiaGordeJoan" value="Gorde Hegaldia">
@@ -152,26 +152,26 @@
                             <div class="blokea" id="joanetorriBlokea" style="display: none;">
                                 <!-- Hegaldiaren itzulera data adierazteko blokea -->
                                 <label for="itzuleraData">Iztulera Data:</label>
-                                <input type="date" name="itzuleraData" id="itzuleraData">
+                                <input type="date" name="itzuleraData" id="itzuleraData" required>
                                 <!-- Hegaldiaren itzulera ordua adierazteko blokea -->
                                 <div class="blokea">
                                     <label for="itzuleraOrdua">Irteera Ordua:</label>
-                                    <input type="time" name="itzuleraOrdua" id="itzuleraOrdua">
+                                    <input type="time" name="itzuleraOrdua" id="itzuleraOrdua" required>
                                 </div>
                                 <!-- Hegaldiaren itzulera iraupena adierazteko blokea -->
                                 <div class="blokea">
                                     <label for="itzulerabidaiIraupena">Bueltako Bidaiaren Iraupena (Orduetan)</label>
-                                    <input type="text" name="itzulerabidaiIraupena" id="itzulerabidaiIraupena" placeholder="Sartu bueltako hegaldiaren iraupena">
+                                    <input type="text" name="itzulerabidaiIraupena" id="itzulerabidaiIraupena" placeholder="Sartu bueltako hegaldiaren iraupena" required>
                                 </div>
                                 <!-- Bueltako hegaldiaren kodea adierazteko blokea -->
                                 <div class="blokea">                                    
                                     <label for="itzulerabidaiKodea">Bueltako Hegaldi Kodea:</label>
-                                    <input type="text" name="itzulerabidaiKodea" id="itzulerabidaiKodea" placeholder="Sartu bueltako hegaldiaren kodea">
+                                    <input type="text" name="itzulerabidaiKodea" id="itzulerabidaiKodea" placeholder="Sartu bueltako hegaldiaren kodea" required>
                                 </div>
                                 <!-- Bueltako airelinea hautatzeko blokea -->
                                 <div class="blokea">
                                     <label for="itzuleraAerolinea">Bueltako Aerolinea:</label>
-                                    <select name="itzuleraAerolinea" id="itzuleraAerolinea">
+                                    <select name="itzuleraAerolinea" id="itzuleraAerolinea" required>
                                         <option value="">--Aukeratu--</option>
                                         <?php
                                         while ($aerolinea = mysqli_fetch_array($queryBueltakoAerolinea)) {
@@ -188,31 +188,31 @@
                         <div class="blokea" id="ostatuaBlokea" style="display: none;">
                             <!-- Ostatuaren izena adierazteko blokea -->
                             <label for="Hotelaren_Izena">Hotelaren Izena:</label>
-                            <input type="text" name="Hotelaren_Izena" id="Hotelaren_Izena" placeholder="Sartu hotelaren izena">
+                            <input type="text" name="Hotelaren_Izena" id="Hotelaren_Izena" placeholder="Sartu hotelaren izena" required>
                             <!-- Ostatua dagoen hirian adierazteko blokea -->
                             <div class="blokea">
                                 <label for="Hiria">Hiria:</label>
-                                <input type="text" name="Hiria" id="Hiria" placeholder="Sartu hiriaren izena">
+                                <input type="text" name="Hiria" id="Hiria" placeholder="Sartu hiriaren izena" required>
                             </div>
                             <!-- Ostatuaren prezioa adierazteko blokea -->
                             <div class="blokea">
                                 <label for="ostatuaPrezioa">Prezioa (€):</label>
-                                <input type="number" name="ostatuaPrezioa" id="ostatuaPrezioa" placeholder="Sartu ostatuaren prezioa">
+                                <input type="number" name="ostatuaPrezioa" id="ostatuaPrezioa" placeholder="Sartu ostatuaren prezioa" required>
                             </div>
                             <!-- Ostatuan sarrera eguna adierazteko blokea -->
                             <div class="blokea">
                                 <label for="Sarrera_Eguna">Sarrera Eguna:</label>
-                                <input type="date" name="Sarrera_Eguna" id="Sarrera_Eguna">
+                                <input type="date" name="Sarrera_Eguna" id="Sarrera_Eguna" required>
                             </div>
                             <!-- Ostatuan irteera eguna adierazteko blokea -->
                             <div class="blokea">
                                 <label for="Irteera_Eguna">Irteera Eguna:</label>
-                                <input type="date" name="Irteera_Eguna" id="Irteera_Eguna">
+                                <input type="date" name="Irteera_Eguna" id="Irteera_Eguna" required>
                             </div>
                             <!-- Logela mota adierazteko blokea -->  
                             <div class="blokea">
                                 <label for="Logela_Mota">Logela Mota:</label>
-                                <select name="Logela_Mota" id="Logela_Mota">
+                                <select name="Logela_Mota" id="Logela_Mota" required>
                                     <option value="">--Aukeratu--</option>
                                     <?php
                                     while ($logela_mota = mysqli_fetch_array($queryLogelaMota)) {
@@ -228,21 +228,21 @@
                         <div class="blokea" id="bestebatzukBlokea" style="display: none;">
                             <!-- Zerbitzuaren izena adierazteko blokea -->
                             <label for="IzenaBesteBatzuk">Izena:</label>
-                            <input type="text" name="IzenaBesteBatzuk" id="IzenaBesteBatzuk" placeholder="Sartu zerbitzuaren izena">
+                            <input type="text" name="IzenaBesteBatzuk" id="IzenaBesteBatzuk" placeholder="Sartu zerbitzuaren izena" required>
                             <!-- Zerbitzuaren data -->
                             <div class="blokea">
                                 <label for="Eguna">Data:</label>
-                                <input type="date" name="Eguna" id="Eguna">
+                                <input type="date" name="Eguna" id="Eguna" required>
                             </div>
                             <!-- Zerbitzuaren deskribapena adierazteko blokea -->
                             <div class="blokea">
                                 <label for="zerbitzuDeskribapena">Deskribapena:</label>
-                                <textarea name="zerbitzuDeskribapena" id="zerbitzuDeskribapena" rows="4" cols="50" placeholder="Sartu zerbitzuaren deskribapena"></textarea>
+                                <textarea name="zerbitzuDeskribapena" id="zerbitzuDeskribapena" rows="4" cols="50" placeholder="Sartu zerbitzuaren deskribapena" required></textarea>
                             </div>
                             <!-- Zerbitzuaren prezioa adierazteko blokea -->
                             <div class="blokea">
                                 <label for="zerbitzuPrezioa">Prezioa (€):</label>
-                                <input type="number" name="zerbitzuPrezioa" id="zerbitzuPrezioa" placeholder="Sartu zerbitzuaren prezioa">
+                                <input type="number" name="zerbitzuPrezioa" id="zerbitzuPrezioa" placeholder="Sartu zerbitzuaren prezioa" required>
                             </div>
                             <!-- Gordetzeko botoia -->
                             <input type="submit" id="bestebatzukGorde" name="bestebatzukGorde" value="Gorde Zerbitzua">
