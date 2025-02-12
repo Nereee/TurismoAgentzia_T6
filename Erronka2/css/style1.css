@@ -279,7 +279,7 @@ footer img:hover {
 
     table {
         margin-left: 0;
-        
+        width: 100%;
     }
 
     #logoa, #btnLogout {
@@ -289,6 +289,20 @@ footer img:hover {
 
     main {
         flex-direction: column;
+    }
+
+    #agentziaBistaratu {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input[type="text"], input[type="password"], input[type="date"], input[type="number"], input[type="time"], select, textarea {
+        font-size: 14px;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 8px;
     }
 }
 
@@ -301,5 +315,23 @@ footer img:hover {
     form {
         width: 100%;
         padding: 10px;
+    }
+
+    #agentziaBistaratu {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    input[type="text"], input[type="password"], input[type="date"], input[type="number"], input[type="time"], select, textarea {
+        font-size: 12px;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    footer {
+        font-size: 12px;
     }
 }
