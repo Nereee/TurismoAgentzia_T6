@@ -1,5 +1,5 @@
 /*Elementu guztietan aurrez ezarritako ertzak eta betegarria ezabatzen ditu, eta box-sizing erabiltzen du: border-box, marjinak eta betegarriak sartzeko elementuaren guztizko tamainaren barruan, dimentsioen kontrola erraztuz.*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ body {
     margin: 0;
 }
 
-main{
+main {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -45,7 +45,9 @@ main{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#zerbitzuForm, #loginForm, #bidaiaForm {
+#zerbitzuForm, 
+#loginForm, 
+#bidaiaForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +61,8 @@ main{
     padding-bottom: 0;
 }
 
-#zerbitzuForm, #bidaiaForm {
+#zerbitzuForm, 
+#bidaiaForm {
     max-width: 500px;
 }
 
@@ -67,7 +70,7 @@ main{
     max-width: 300px;
 }
 
-legend{
+legend {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -79,12 +82,18 @@ fieldset {
     margin: 0;
 }
 
-textarea{
+textarea {
     height: 100px;
     resize: none;
 }
 
-input[type="text"], input[type="password"], input[type="date"], input[type="number"], input[type="time"], select, textarea {
+input[type="text"], 
+input[type="password"], 
+input[type="date"], 
+input[type="number"], 
+input[type="time"], 
+select, 
+textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
@@ -98,7 +107,8 @@ input[type="radio"] {
     margin-top: 10px;
 }
 
-input[type="submit"], input[type="button"] {
+input[type="submit"], 
+input[type="button"] {
     padding: 10px 20px;
     margin-top: 10px;
     border: none;
@@ -115,7 +125,8 @@ input[type="button"]:hover {
     transition: background-color 0.3s ease;
 }
 
-#btnLogout, #btnAtzera {
+#btnLogout, 
+#btnAtzera {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -126,7 +137,6 @@ input[type="button"]:hover {
     color: white;
     font-size: 16px;
 }
-
 
 #btnLogout:hover,
 #btnAtzera:hover {
@@ -144,7 +154,8 @@ table {
     margin: 20px auto;
 }
 
-th, td {
+th, 
+td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
@@ -159,34 +170,10 @@ tr {
     background-color: #f9f9f9;
 }
 
-#taula-container-bidaia {
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-#taula-container-hegaldia {
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-#taula-container-hegaldiaBuelta {
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-#taula-container-ostatua {
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
+#taula-container-bidaia,
+#taula-container-hegaldia,
+#taula-container-hegaldiaBuelta,
+#taula-container-ostatua,
 #taula-container-bestebatzuk {
     margin-top: 20px;
     justify-content: center;
@@ -282,7 +269,8 @@ footer img:hover {
         width: 100%;
     }
 
-    #logoa, #btnLogout {
+    #logoa, 
+    #btnLogout {
         position: static;
         margin-bottom: 20px;
     }
@@ -296,7 +284,13 @@ footer img:hover {
         padding: 10px;
     }
 
-    input[type="text"], input[type="password"], input[type="date"], input[type="number"], input[type="time"], select, textarea {
+    input[type="text"], 
+    input[type="password"], 
+    input[type="date"], 
+    input[type="number"], 
+    input[type="time"], 
+    select, 
+    textarea {
         font-size: 14px;
     }
 
@@ -307,7 +301,8 @@ footer img:hover {
 }
 
 @media (max-width: 480px) {
-    input[type="submit"], input[type="button"] {
+    input[type="submit"], 
+    input[type="button"] {
         width: 100%;
         margin-top: 10px;
     }
@@ -322,11 +317,18 @@ footer img:hover {
         padding: 8px;
     }
 
-    input[type="text"], input[type="password"], input[type="date"], input[type="number"], input[type="time"], select, textarea {
+    input[type="text"], 
+    input[type="password"], 
+    input[type="date"], 
+    input[type="number"], 
+    input[type="time"], 
+    select, 
+    textarea {
         font-size: 12px;
     }
 
-    th, td {
+    th, 
+    td {
         font-size: 12px;
         padding: 6px;
     }
