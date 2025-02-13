@@ -294,9 +294,21 @@ footer img:hover {
         font-size: 14px;
     }
 
-    th, td {
+    th, 
+    td {
         font-size: 14px;
-        padding: 8px;
+        padding
+        : 8px;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    th, td {
+        white-space: nowrap;
     }
 }
 
@@ -335,5 +347,17 @@ footer img:hover {
 
     footer {
         font-size: 12px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, 
+    td {
+        white-space: nowrap;
     }
 }
