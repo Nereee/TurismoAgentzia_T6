@@ -1,0 +1,363 @@
+/*Elementu guztietan aurrez ezarritako ertzak eta betegarria ezabatzen ditu, eta box-sizing erabiltzen du: border-box, marjinak eta betegarriak sartzeko elementuaren guztizko tamainaren barruan, dimentsioen kontrola erraztuz.*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    padding-bottom: 50px;
+    padding: 20px;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blokea {
+    margin-bottom: 15px;
+}
+
+#agentziaBistaratu {
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #007bff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#zerbitzuForm, 
+#loginForm, 
+#bidaiaForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-bottom: 100px;
+    width: 100%;
+    padding-bottom: 0;
+}
+
+#zerbitzuForm, 
+#bidaiaForm {
+    max-width: 500px;
+}
+
+#loginForm {
+    max-width: 300px;
+}
+
+legend {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="date"], 
+input[type="number"], 
+input[type="time"], 
+select, 
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    width: 50px;
+    margin-top: 10px;
+}
+
+input[type="submit"], 
+input[type="button"] {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    cursor: pointer;
+    background-color: darkblue;
+    transition: background-color 0.3s ease;
+}
+
+#btnLogout, 
+#btnAtzera {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(178, 18, 18);
+    color: white;
+    font-size: 16px;
+}
+
+#btnLogout:hover,
+#btnAtzera:hover {
+    cursor: pointer;
+    background-color: rgb(120, 21, 21);
+    transition: background-color 0.3s ease;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+th, 
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr {
+    background-color: #f9f9f9;
+}
+
+#taula-container-bidaia,
+#taula-container-hegaldia,
+#taula-container-hegaldiaBuelta,
+#taula-container-ostatua,
+#taula-container-bestebatzuk {
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#errore_mezua {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffe6e6;
+    text-align: center;
+}
+
+#logoa {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+}
+
+#logoa:hover {
+    transition: transform 0.2s;
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #343638;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: lightsalmon;
+}
+
+footer a:visited {
+    color: salmon;
+    text-decoration: none;
+}
+
+footer a:active {
+    color: red;
+    text-decoration: solid;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer img {
+    height: 35px;
+    transition: transform 0.2s;
+}
+
+footer img:hover {
+    transform: scale(1.2);
+}
+
+.logo_f {
+    border-radius: 5px;
+}
+
+.sare-sozialak a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    table {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #logoa, 
+    #btnLogout {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    #agentziaBistaratu {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    input[type="text"], 
+    input[type="password"], 
+    input[type="date"], 
+    input[type="number"], 
+    input[type="time"], 
+    select, 
+    textarea {
+        font-size: 14px;
+    }
+
+    th, 
+    td {
+        font-size: 14px;
+        padding
+        : 8px;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    th, td {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    input[type="submit"], 
+    input[type="button"] {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    form {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #agentziaBistaratu {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    input[type="text"], 
+    input[type="password"], 
+    input[type="date"], 
+    input[type="number"], 
+    input[type="time"], 
+    select, 
+    textarea {
+        font-size: 12px;
+    }
+
+    th, 
+    td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, 
+    td {
+        white-space: nowrap;
+    }
+}
